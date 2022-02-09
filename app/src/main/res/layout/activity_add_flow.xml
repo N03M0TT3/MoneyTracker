@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFlowActivity">
+
+    <ImageView
+        android:id="@+id/main2BackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_media_previous"
+        app:tint="@color/soft_grey_37" />
+
+
+    <!--    TITLE       -->
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Display2"
+        android:id="@+id/flowWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new flow"
+        android:layout_margin="40dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <!-- NAME OF THE FLOW -->
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:id="@+id/flowFlowNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is this flow?"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/flowWelcomeText"/>
+
+    <EditText
+        android:id="@+id/flowFlowNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flowFlowNameText"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Name of the flow"
+        android:inputType="text" />
+
+    <!-- VALUE OF THE FLOW -->
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:id="@+id/flowFlowValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How much is it?"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_below="@id/flowFlowNameInput"/>
+
+    <EditText
+        android:id="@+id/flowFlowValueInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Value of the flow"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/flowFlowValueText"/>
+
+    <RadioGroup
+        android:id="@+id/flowRadioGroupInputOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flowFlowValueInput"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        >
+
+        <RadioButton
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:id="@+id/flowRadioButtonInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Input" />
+
+        <RadioButton
+            android:id="@+id/flowRadioButtonOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Output"
+            android:layout_margin="10dp"/>
+
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/flowPaymentMethodSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flowRadioGroupInputOutput"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/flowAddFlowButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flowRadioGroupInputOutput"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="25dp"
+        android:text="ADD THIS FLOW" />
+
+
+
+
+</RelativeLayout>
