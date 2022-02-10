@@ -14,7 +14,6 @@ class Database(context : Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-
         db?.execSQL(databaseInfo.SQL_CREATE_TABLE_QUERY)
     }
 
@@ -22,6 +21,8 @@ class Database(context : Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         db?.execSQL(databaseInfo.SQL_DELETE_TABLE_QUERY)
         onCreate(db)
     }
+
+
 
 
 
