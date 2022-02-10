@@ -6,17 +6,22 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class Database(context : Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
+    var databaseInfo = DatabaseInfo
+
     companion object {
-        const val DATABASE_NAME = "FlowDatabase"
+        const val DATABASE_NAME = "FlowDatabase.db"
         const val DATABASE_VERSION = 1
     }
 
-    override fun onCreate(p0: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+    override fun onCreate(db: SQLiteDatabase?) {
+        db.execSQL(databaseInfo.SQL_CREATE_TABLE_QUERY)
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db.execSQL(databaseInfo.SQL_DELETE_TABLE_QUERY)
+        onCreate(db)
     }
+
+
 
 }
