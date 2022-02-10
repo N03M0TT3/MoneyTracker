@@ -14,11 +14,12 @@ class AddFlowActivity : AppCompatActivity() {
 
         val database = Database(this)
 
-        val buttonBack = findViewById<ImageView>(R.id.main2BackButton)
+        val buttonBack = findViewById<ImageView>(R.id.flowBackButton)
         val editNameFlow = findViewById<EditText>(R.id.flowFlowNameInput)
         val editValueFlow = findViewById<EditText>(R.id.flowFlowValueInput)
         val radioNatureFlow = findViewById<RadioGroup>(R.id.flowRadioGroupInputOutput)
         val spinnerPaymentMethod = findViewById<Spinner>(R.id.flowPaymentMethodSpinner)
+        val editNoteFlow = findViewById<EditText>(R.id.flowFlowNoteInput)
         val buttonAddFlow = findViewById<Button>(R.id.flowAddFlowButton)
 
         buttonBack.setOnClickListener {
@@ -37,6 +38,10 @@ class AddFlowActivity : AppCompatActivity() {
             val radioChoice = findViewById<RadioButton>(idRadio)
             val method = radioChoice.text.toString()
 
+            val note = editNoteFlow.text.toString()
+
+
+
             val db = database.writableDatabase
 
             val values = ContentValues().apply {
@@ -44,13 +49,13 @@ class AddFlowActivity : AppCompatActivity() {
                 put(DatabaseInfo.TableInfo.COLUMN_FLOW_NAME, name)
                 put(DatabaseInfo.TableInfo.COLUMN_FLOW_METHOD, method)
                 put(DatabaseInfo.TableInfo.COLUMN_FLOW_DATE, "TODAY")
-                put(DatabaseInfo.TableInfo.COLUMN_FLOW_NOTE, "NO NOTE")
+                put(DatabaseInfo.TableInfo.COLUMN_FLOW_NOTE, note)
             }
 
             val newRowId = db?.insert(DatabaseInfo.TableInfo.TABLE_NAME, null, values)
 
-            if(newRowId?.toInt() != -1) {
-                Toast.makeText(this, "Problem with the databse", Toast.LENGTH_LONG).show()
+            if(newRowId?.toInt() == -1) {
+                Toast.makeText(this, "Problem with the database", Toast.LENGTH_LONG).show()
             }
 
             // Rajouter à la base de données une ligne avec les informations récoltées
